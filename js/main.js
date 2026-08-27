@@ -1,148 +1,137 @@
-// === NAV ===
-const nav = document.querySelector('.nav');
-const hamburger = document.querySelector('.nav-hamburger');
-const navLinks = document.querySelector('.nav-links');
-const currentPath = location.pathname.split('/').pop() || 'index.html';
+/* Pr0 Social EPK - theme switch, nav, scroll reveal, video + photo modal. */
+(function () {
+  "use strict";
 
-// Active link
-document.querySelectorAll('.nav-links a').forEach(a => {
-  if (a.getAttribute('href') === currentPath) a.classList.add('active');
-});
+  var root = document.documentElement;
+  var KEY = "pr0-theme";
 
-// Scroll state
-window.addEventListener('scroll', () => {
-  nav?.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-// Mobile toggle
-hamburger?.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-
-// Close on link click
-navLinks?.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger?.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
-
-// === HERO SLIDESHOW ===
-function initSlideshow() {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  if (!slides.length) return;
-
-  let current = 0;
-  let timer;
-
-  function goTo(idx) {
-    slides[current].classList.remove('active');
-    dots[current]?.classList.remove('active');
-    current = (idx + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    dots[current]?.classList.add('active');
+  /* ---- theme ---------------------------------------------------------- */
+  function applyTheme(name) {
+    if (name === "brass") root.setAttribute("data-theme", "brass");
+    else root.removeAttribute("data-theme");
+    document.querySelectorAll(".tsw button").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.mode === name));
+    });
+    try { localStorage.setItem(KEY, name); } catch (e) {}
   }
 
-  function next() { goTo(current + 1); }
-
-  function startTimer() {
-    clearInterval(timer);
-    timer = setInterval(next, 5000);
-  }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); startTimer(); });
+  document.querySelectorAll(".tsw button").forEach(function (b) {
+    b.addEventListener("click", function () { applyTheme(b.dataset.mode); });
   });
 
-  document.querySelector('.hero-prev')?.addEventListener('click', () => { goTo(current - 1); startTimer(); });
-  document.querySelector('.hero-next')?.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+  var stored = "bone";
+  try { stored = localStorage.getItem(KEY) || "bone"; } catch (e) {}
+  applyTheme(stored);
 
-  startTimer();
-}
+  /* ---- header ---------------------------------------------------------- */
+  var header = document.querySelector(".header");
+  if (header) {
+    var sentinel = document.createElement("div");
+    sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;";
+    document.body.prepend(sentinel);
+    new IntersectionObserver(function (es) {
+      header.classList.toggle("is-stuck", !es[0].isIntersecting);
+    }).observe(sentinel);
+  }
 
-// === LIGHTBOX ===
-function initLightbox() {
-  const items = document.querySelectorAll('.gallery-item');
-  if (!items.length) return;
+  /* ---- mobile nav ------------------------------------------------------ */
+  var toggle = document.querySelector(".navtoggle");
+  var nav = document.querySelector(".nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 
-  const lightbox = document.querySelector('.lightbox');
-  const lightImg = lightbox?.querySelector('.lightbox-img');
-  if (!lightbox) return;
+  /* ---- scroll reveal --------------------------------------------------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reveals.length && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("is-in"); });
+  }
 
-  const srcs = Array.from(items).map(el => el.querySelector('img')?.src || '');
-  let lightboxIdx = 0;
+  /* ---- modal ----------------------------------------------------------- */
+  var modal = document.getElementById("modal");
+  if (!modal) return;
+  var box = modal.querySelector(".modal__box");
+  var lastFocus = null;
 
-  function open(idx) {
-    lightboxIdx = idx;
-    lightImg.src = srcs[idx];
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function open(html) {
+    lastFocus = document.activeElement;
+    box.innerHTML = html;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("is-locked");
+    var x = modal.querySelector(".modal__x");
+    if (x) x.focus();
   }
 
   function close() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("is-locked");
+    setTimeout(function () { box.innerHTML = ""; }, 320);
+    if (lastFocus) lastFocus.focus();
   }
 
-  function shift(dir) {
-    lightboxIdx = (lightboxIdx + dir + srcs.length) % srcs.length;
-    lightImg.src = srcs[lightboxIdx];
-  }
-
-  items.forEach((item, i) => item.addEventListener('click', () => open(i)));
-  lightbox.querySelector('.lightbox-close')?.addEventListener('click', close);
-  lightbox.querySelector('.lightbox-prev')?.addEventListener('click', () => shift(-1));
-  lightbox.querySelector('.lightbox-next')?.addEventListener('click', () => shift(1));
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
-
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') shift(-1);
-    if (e.key === 'ArrowRight') shift(1);
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal || e.target.closest(".modal__x")) close();
   });
-}
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) close();
+  });
 
-// === FADE IN ON SCROLL ===
-function initFadeIn() {
-  const els = document.querySelectorAll('.fade-in');
-  if (!els.length) return;
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+  var X = '<button class="modal__x" aria-label="Close">' +
+    '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">' +
+    '<path d="M2 2l12 12M14 2L2 14"/></svg></button>';
+
+  document.querySelectorAll("[data-video]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      open(X + '<div class="modal__frame"><iframe src="https://drive.google.com/file/d/' +
+        el.dataset.video + '/preview" allow="autoplay; fullscreen" allowfullscreen title="' +
+        (el.dataset.title || "Video") + '"></iframe></div>' +
+        '<p class="modal__cap">' + (el.dataset.title || "") + '</p>');
     });
-  }, { threshold: 0.1 });
-  els.forEach(el => io.observe(el));
-}
-
-// === CONTACT FORM ===
-function initContactForm() {
-  const form = document.querySelector('.contact-form form');
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Message Sent!';
-    btn.disabled = true;
-    btn.style.background = '#4a9a5a';
-    setTimeout(() => {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-      btn.style.background = '';
-      form.reset();
-    }, 3000);
   });
-}
 
-// === INIT ===
-document.addEventListener('DOMContentLoaded', () => {
-  initSlideshow();
-  initLightbox();
-  initFadeIn();
-  initContactForm();
-});
+  document.querySelectorAll("[data-photo]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      open(X + '<img class="modal__img" src="' + el.dataset.photo + '" alt="' +
+        (el.dataset.title || "Pr0 Social press photo") + '">' +
+        '<p class="modal__cap">' + (el.dataset.title || "") + '</p>');
+    });
+  });
+
+  /* ---- booking form: composes an email, no backend required ------------- */
+  var form = document.getElementById("bookform");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var d = new FormData(form);
+      var lines = [
+        "Name: " + (d.get("name") || ""),
+        "Email: " + (d.get("email") || ""),
+        "Inquiry: " + (d.get("type") || ""),
+        "Event date: " + (d.get("date") || "not specified"),
+        "Venue / location: " + (d.get("venue") || "not specified"),
+        "", (d.get("message") || "")
+      ];
+      window.location.href = "mailto:" + form.dataset.to +
+        "?subject=" + encodeURIComponent((d.get("type") || "Inquiry") + " - " + (d.get("name") || "")) +
+        "&body=" + encodeURIComponent(lines.join("\n"));
+    });
+  }
+})();

@@ -1,211 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shows | Pr0 Social EPK</title>
-  <meta name="description" content="Upcoming shows and past performances from Pr0 Social. Book Pr0 Social for your venue or festival." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/jpeg" href="https://drive.google.com/thumbnail?id=1aazWa6XKJQuO0xi4nvSaUj7w5D6fAFfH&sz=w64" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shows | Pr0 Social</title>
+<meta name="description" content="Pr0 Social live: Town Ballroom, Beau Fleuve, MiA Festival, Buffalo Porchfest and a Northeast run. Booking open.">
+<link rel="canonical" href="https://klientohq.github.io/Jerrell_Website/shows.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pr0 Social">
+<meta property="og:title" content="Shows | Pr0 Social">
+<meta property="og:description" content="Pr0 Social live: Town Ballroom, Beau Fleuve, MiA Festival, Buffalo Porchfest and a Northeast run. Booking open.">
+<meta property="og:url" content="https://klientohq.github.io/Jerrell_Website/shows.html">
+<meta property="og:image" content="https://klientohq.github.io/Jerrell_Website/assets/opt/photo-15-1600.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
+<link rel="icon" href="assets/opt/logo-400.jpg">
+<link rel="apple-touch-icon" href="assets/opt/logo-400.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){document.documentElement.classList.add("js");try{var t=localStorage.getItem("pr0-theme");if(t==="brass")document.documentElement.setAttribute("data-theme","brass");}catch(e){}})();</script>
 </head>
 <body>
-
-<nav class="nav" aria-label="Main navigation">
-  <a href="index.html" class="nav-logo" aria-label="Pr0 Social Home">
-    <img src="https://drive.google.com/thumbnail?id=1aazWa6XKJQuO0xi4nvSaUj7w5D6fAFfH&sz=w200" alt="Pr0 Social Logo" />
-    <span>Pr0 Social</span>
-  </a>
-  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" role="list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="music.html">Music</a></li>
-    <li><a href="videos.html">Videos</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="shows.html">Shows</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-<main class="page-content">
-
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <p class="section-label">Live</p>
-      <h1 class="page-hero-title">Shows &amp; Events</h1>
-      <p style="margin-top:1rem; color:var(--beige-light); font-size:1rem; max-width:480px;">
-        Catch Pr0 Social live. For booking inquiries, visit the contact page.
-      </p>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header">
+  <div class="wrap header__in">
+    <a class="brand" href="index.html" aria-label="Pr0 Social, home">
+      <img class="brand__dark" src="assets/opt/logomark-dark.png" alt="Pr0 Social" width="56" height="30">
+      <img class="brand__light" src="assets/opt/logomark-light.png" alt="Pr0 Social" width="56" height="30">
+    </a>
+    <nav class="nav" aria-label="Main"><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="videos.html">Videos</a><a href="gallery.html">Photos</a><a href="shows.html" aria-current="page">Shows</a><a href="contact.html">Booking</a></nav>
+    <div class="hactions">
+      <div class="tsw" role="group" aria-label="Colour theme">
+        <span class="tsw__thumb" aria-hidden="true"></span>
+        <button type="button" data-mode="bone" aria-pressed="true">Bone</button>
+        <button type="button" data-mode="brass" aria-pressed="false">Brass</button>
+      </div>
+      <button class="navtoggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
+</header>
+<main id="main">
 
-  <!-- UPCOMING SHOWS -->
-  <section class="section" style="background: var(--bg-dark); border-bottom: 1px solid var(--border);">
-    <div class="section-inner">
-      <p class="section-label fade-in">Coming Up</p>
-      <h2 class="section-title fade-in">Upcoming <em>Shows</em></h2>
-      <div class="divider fade-in"></div>
+<section class="wrap phead">
+  <span class="eyebrow reveal">Live</span>
+  <h1 class="t-display reveal" style="--d:60ms">Shows</h1>
+  <p class="lede reveal" style="--d:120ms">Headline sets, festivals, private events and DJ sets across the Northeast.</p>
+</section>
 
-      <!-- Empty state — update with real shows when available -->
-      <div class="shows-empty fade-in" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 4rem 2rem;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--cream); margin-bottom:0.75rem;">No Upcoming Shows Listed</h3>
-        <p style="color:var(--text-secondary); margin-bottom:2rem; max-width:400px; margin-left:auto; margin-right:auto;">
-          New dates are being scheduled. Follow on social media or contact for booking inquiries to stay updated.
-        </p>
-        <a href="contact.html" class="btn btn-primary">Book Pr0 Social</a>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="grid grid--2">
+      <div class="reveal">
+        <h2 class="t-section">Next up</h2>
+        <p class="copy mt-s">No public dates announced right now. New dates go here as they are confirmed, so check back or follow along on Instagram.</p>
+        <div class="btnrow mt-m">
+          <a class="btn btn--accent" href="contact.html">Book a date<svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M1 7h11M7.5 2.5L12 7l-4.5 4.5"/></svg></a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/prettypr0social/" target="_blank" rel="noopener">Follow on Instagram</a>
+        </div>
+      </div>
+      <div class="reveal" style="--d:90ms"><picture><source type="image/webp" srcset="assets/opt/photo-06-400.webp 400w, assets/opt/photo-06-800.webp 800w, assets/opt/photo-06-1600.webp 1600w" sizes="(max-width:620px) 92vw, 46vw"><img src="assets/opt/photo-06-1600.jpg" srcset="assets/opt/photo-06-400.jpg 400w, assets/opt/photo-06-800.jpg 800w, assets/opt/photo-06-1600.jpg 1600w" sizes="(max-width:620px) 92vw, 46vw" alt="Pr0 Social performing" class="" loading="lazy" decoding="async"></picture></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="shead"><h2 class="t-section">Where he has played</h2></div>
+    <div class="rows reveal">
+      <div class="row"><span class="row__i num">2025</span><span><span class="row__t">Buffalo Porchfest</span><span class="row__s">545 Elmwood Avenue, Buffalo NY</span></span><span class="row__e"></span></div><div class="row"><span class="row__i num">2025</span><span><span class="row__t">some don&#x27;t make it here.. release show</span><span class="row__s">Buffalo, NY</span></span><span class="row__e"></span></div><div class="row"><span class="row__i num">2024</span><span><span class="row__t">MiA Festival</span><span class="row__s">Buffalo, NY</span></span><span class="row__e"></span></div><div class="row"><span class="row__i num">2023</span><span><span class="row__t">Town Ballroom</span><span class="row__s">Buffalo, NY. Headline show.</span></span><span class="row__e"></span></div><div class="row"><span class="row__i num">2023</span><span><span class="row__t">Beau Fleuve Festival</span><span class="row__s">Buffalo, NY</span></span><span class="row__e"></span></div><div class="row"><span class="row__i num">2022</span><span><span class="row__t">Northeast run</span><span class="row__s">Richmond, Boston, Toronto, Pennsylvania</span></span><span class="row__e"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="shead"><h2 class="t-section">What a promoter gets</h2></div>
+    <div class="grid grid--3">
+      <div class="card reveal"><h3 class="t-card">Two acts in one</h3><p class="card__k">Book him as a rapper and singer with a live set, or behind the decks for bass and EDM. Same night, if you want it.</p></div>
+      <div class="card reveal" style="--d:80ms"><h3 class="t-card">A real draw in Buffalo</h3><p class="card__k">Headlined Town Ballroom, played Beau Fleuve, MiA Festival and Porchfest. The city knows the name.</p></div>
+      <div class="card reveal" style="--d:160ms"><h3 class="t-card">Promo ready</h3><p class="card__k">Hi-res photos, artwork, video clips and bio are all on this site. No chasing anybody for assets.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="banner reveal">
+      <div class="banner__bg"><picture><source type="image/webp" srcset="assets/opt/photo-15-800.webp 800w, assets/opt/photo-15-1600.webp 1600w" sizes="100vw"><img src="assets/opt/photo-15-1600.jpg" srcset="assets/opt/photo-15-800.jpg 800w, assets/opt/photo-15-1600.jpg 1600w" sizes="100vw" alt="Pr0 Social" class="" loading="lazy" decoding="async"></picture></div>
+      <div class="banner__in">
+        <h2 class="t-display">Let's get a date on the books</h2>
+        <p>Concerts, festivals, private events and DJ sets. Send the date, the venue and the room size.</p>
+        <div class="btnrow"><a class="btn btn--primary" href="contact.html">Booking inquiry<svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M1 7h11M7.5 2.5L12 7l-4.5 4.5"/></svg></a></div>
       </div>
     </div>
-  </section>
-
-  <!-- PAST PERFORMANCES -->
-  <section class="section" style="background: var(--bg-deep);">
-    <div class="section-inner">
-      <p class="section-label fade-in">History</p>
-      <h2 class="section-title fade-in">Past <em>Performances</em></h2>
-      <div class="divider fade-in"></div>
-      <div class="show-list">
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2025</div>
-          </div>
-          <div>
-            <div class="show-venue">EP Release Show</div>
-            <div class="show-location">Buffalo, NY — <em>some don't make it here…</em> EP Launch</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2024</div>
-          </div>
-          <div>
-            <div class="show-venue">MiA Festival</div>
-            <div class="show-location">Buffalo, NY — Annual Music Festival</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2023</div>
-          </div>
-          <div>
-            <div class="show-venue">Town Ballroom</div>
-            <div class="show-location">Buffalo, NY — Headline Show</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2023</div>
-          </div>
-          <div>
-            <div class="show-venue">Porch Fest</div>
-            <div class="show-location">Buffalo, NY — Outdoor Festival</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2023</div>
-          </div>
-          <div>
-            <div class="show-venue">Beau Fleuve Festival</div>
-            <div class="show-location">Buffalo, NY — Annual Music &amp; Arts Festival</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-        <div class="show-card fade-in">
-          <div class="show-date">
-            <div class="show-day">—</div>
-            <div class="show-month">2022–23</div>
-          </div>
-          <div>
-            <div class="show-venue">Regional Tour</div>
-            <div class="show-location">Richmond · Boston · Toronto · Pennsylvania</div>
-          </div>
-          <span style="font-size:0.75rem; color:var(--text-secondary); white-space:nowrap;">Past</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOKING CTA -->
-  <section class="section" style="background: var(--bg-dark); border-top: 1px solid var(--border);">
-    <div class="section-inner" style="max-width:700px; text-align:center;">
-      <p class="section-label fade-in">Booking</p>
-      <h2 class="section-title fade-in">Book Pr0 Social for <em>Your Venue</em></h2>
-      <div class="divider fade-in" style="margin: 1.25rem auto 1.5rem;"></div>
-      <p class="section-body fade-in" style="margin: 0 auto 2rem;">
-        Pr0 Social is available for concerts, festivals, private events, and DJ sets. With experience performing across the Northeast and at major Buffalo festivals, he delivers an energetic, memorable performance every time.
-      </p>
-      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;" class="fade-in">
-        <a href="contact.html" class="btn btn-primary">Send Booking Inquiry</a>
-        <a href="about.html" class="btn btn-outline">View Full EPK</a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
-
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="https://drive.google.com/thumbnail?id=1aazWa6XKJQuO0xi4nvSaUj7w5D6fAFfH&sz=w200" alt="Pr0 Social Logo" />
-      <p>Rapper · Singer · DJ from Buffalo, NY. Blending R&B with sharp lyricism since 2018.</p>
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a class="brand brand--lg" href="index.html" aria-label="Pr0 Social, home">
+          <img class="brand__dark" src="assets/opt/logomark-dark.png" alt="Pr0 Social" width="78" height="42">
+          <img class="brand__light" src="assets/opt/logomark-light.png" alt="Pr0 Social" width="78" height="42">
+        </a>
+        <p class="copy" style="margin-top:1rem;max-width:34ch">Jerrell Lanos. Rapper, singer and DJ out of Buffalo, New York. Contemporary R&amp;B with rap lyricism, releasing since 2018.</p>
+        <p style="margin-top:1.25rem"><a class="tlink" href="mailto:booking@pr0social.com">booking@pr0social.com<svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M1 7h11M7.5 2.5L12 7l-4.5 4.5"/></svg></a></p>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <nav class="footer__links" aria-label="Footer"><a href="about.html">About</a><a href="music.html">Music</a><a href="videos.html">Videos</a><a href="gallery.html">Photos</a><a href="shows.html">Shows</a><a href="contact.html">Booking</a></nav>
+      </div>
+      <div>
+        <h3>Listen</h3>
+        <div class="footer__links"><a href="https://open.spotify.com/artist/4GrmZ6RJ3gzy5oI4p4Z63U" target="_blank" rel="noopener">Spotify</a><a href="https://music.apple.com/us/artist/pr0-social/1381566556" target="_blank" rel="noopener">Apple Music</a><a href="https://soundcloud.com/pr0social" target="_blank" rel="noopener">SoundCloud</a><a href="https://www.youtube.com/channel/UC-7JeAdJZiXaNKRxtAwQQIw" target="_blank" rel="noopener">YouTube</a><a href="https://www.deezer.com/en/artist/56472262" target="_blank" rel="noopener">Deezer</a><a href="https://www.instagram.com/prettypr0social/" target="_blank" rel="noopener">Instagram</a></div>
+      </div>
     </div>
-    <div class="footer-links">
-      <h4>Pages</h4>
-      <ul>
-        <li><a href="about.html">About</a></li>
-        <li><a href="music.html">Music</a></li>
-        <li><a href="videos.html">Videos</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="shows.html">Shows</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div class="footer__bot">
+      <span>&copy; 2026 Jerrell Lanos. All rights reserved.</span>
+      <span>Booking and press: <a href="contact.html">get in touch</a></span>
     </div>
-    <div class="footer-social">
-      <h4>Connect</h4>
-      <a href="music.html" class="social-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 13.5c2.5-1 5.5-.5 7.5 1M7 11c3-1.5 7-1 9.5 1M9 8.5c2-.5 4.5-.5 6.5 0.5"/></svg>
-        Spotify
-      </a>
-      <a href="music.html" class="social-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        Apple Music
-      </a>
-      <a href="music.html" class="social-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12.5C3 10.6 4.6 9 6.5 9c.2 0 .4 0 .6.1C7.5 7.3 9.1 6 11 6c2.2 0 4 1.8 4 4h1c1.7 0 3 1.3 3 3s-1.3 3-3 3H5.5C4.1 16 3 14.9 3 13.5Z"/></svg>
-        SoundCloud
-      </a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2025 Pr0 Social. All rights reserved.</span>
-    <span>For bookings: <a href="contact.html" style="color: var(--gold);">contact page</a></span>
   </div>
 </footer>
-
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal__box"></div>
+</div>
 <script src="js/main.js"></script>
 </body>
 </html>

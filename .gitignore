@@ -1,0 +1,8 @@
+.DS_Store
+.claude/
+
+# Source material. Only assets/opt is referenced by the site.
+# Originals live on Jerrell's Drive and in this folder locally.
+assets/img/
+assets/covers/
+assets/video-posters/
