@@ -39,20 +39,23 @@
 }
 
 [data-theme="brass"] {
-  --ground:      #0b0908;
-  --ground-2:    #15100c;
-  --ground-3:    #1e1712;
-  --ink:         #f0e6d8;
-  --ink-2:       rgba(240, 230, 216, .64);
-  --ink-3:       rgba(240, 230, 216, .42);
-  --line:        rgba(240, 230, 216, .14);
-  --line-2:      rgba(240, 230, 216, .28);
+  /* The original identity, token for token from the first build:
+     --bg-deep, --bg-dark, --bg-card, --text-primary, --text-secondary,
+     --gold and the gold-tinted borders. */
+  --ground:      #090604;
+  --ground-2:    #120b07;
+  --ground-3:    #1e1208;
+  --ink:         #edd9c0;
+  --ink-2:       #d4b896;
+  --ink-3:       #9b7557;
+  --line:        rgba(196, 146, 74, .18);
+  --line-2:      rgba(196, 146, 74, .45);
   --accent:      #c4924a;
   --accent-soft: rgba(196, 146, 74, .16);
-  --accent-ink:  #14110f;
-  --shadow-sm:   0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.35);
-  --shadow-lg:   0 2px 6px rgba(0,0,0,.45), 0 24px 60px rgba(0,0,0,.55);
-  --glass:       rgba(11, 9, 8, .74);
+  --accent-ink:  #090604;
+  --shadow-sm:   0 1px 2px rgba(0,0,0,.45), 0 4px 14px rgba(0,0,0,.4);
+  --shadow-lg:   0 2px 6px rgba(0,0,0,.5), 0 24px 60px rgba(0,0,0,.6);
+  --glass:       rgba(9, 6, 4, .85);
 
   color-scheme: dark;
 }
